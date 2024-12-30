@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>matheus argolo - portfolio</title>
+
+  <!-- Swiper CSS (CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+
+  <!-- Seu CSS principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div id="name">matheus argolo</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#intro" class="menu-link">início</a></li>
+          <li><a href="#about" class="menu-link">sobre</a></li>
+          <li><a href="#portfolio" class="menu-link">projetos</a></li>
+          <li><a href="#skills" class="menu-link">habilidades</a></li>
+          <li><a href="#testimonials" class="menu-link">depoimentos</a></li>
+          <li><a href="#contact" class="menu-link">contato</a></li>
+        </ul>
+      </nav>
+      <div class="language-selector">
+        idioma
+        <ul class="dropdown">
+          <li><a href="#">português</a></li>
+          <li><a href="#">english</a></li>
+          <li><a href="#">español</a></li>
+          <li><a href="#">français</a></li>
+          <li><a href="#">deutsch</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Seção 1: INÍCIO -->
+    <section id="intro" class="section" data-color="#ebebeb">
+      <div class="container from-down">
+        <h1>oi, eu sou matheus argolo</h1>
+        <p>bem vindo ao meu site! eu sou um designer de jogos apaixonado por criar experiências memoráveis e envolventes.</p>
+      </div>
+    </section>
+
+    <!-- Seção 2: SOBRE -->
+    <section id="about" class="section" data-color="#bc2444">
+      <div class="container about-container section-content from-down">
+        <!-- Foto -->
+        <div class="about-photo">
+          <img src="img/foto.png" alt="Foto de Matheus Argolo">
+        </div>
+        <!-- Texto -->
+        <div class="about-text">
+          <h2>Sobre Mim</h2>
+          <div class="text-scrollable">
+            <p>
+              Sou Matheus Argolo, um Designer de Jogos com uma visão única sobre o jogo como uma forma de mídia, arte e produto interativo. Mais do que focar no "design centrado no jogador", que considero um ponto de partida óbvio, minha abordagem parte de uma premissa mais ampla: criar jogos que sejam experiências projetadas com intencionalidade, capazes de guiar os jogadores em jornadas emocionais, cognitivas e imersivas.
+            </p>
+            <p>
+              Minha formação e pesquisa refletem essa visão. Durante minha graduação em Comunicação em Mídias Digitais pela Universidade Federal da Paraíba, desenvolvi uma análise pioneira sobre os videogames das Copas do Mundo, explorando suas dimensões socioculturais e históricas — um dos poucos trabalhos no mundo a abordar esse tema. Agora, no meu mestrado em Design na UFPE, investigo como o balanceamento cognitivo através do level design pode sustentar o interesse do jogador, destacando o papel central do design como uma ferramenta para construir problemas estimulantes que os jogadores desejem resolver.
+            </p>
+            <p>
+              Profissionalmente, atuo desde 2020 como Designer de Jogos e Pesquisador UX, aplicando essa filosofia em projetos como <strong>“Slidin’ Through”</strong>, <strong>“Dig Out”</strong> e <strong>“Lookin’ 4 a Like”</strong>, sempre buscando alinhar mecânicas, narrativas e estética para criar experiências significativas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Seção 3: PROJETOS (Swiper) -->
+    <section id="portfolio" class="section" data-color="#ebebeb">
+      <div class="container from-down">
+        <h2>meus jogos</h2>
+
+        <!-- Wrapper sem overflow:hidden -->
+        <div class="swiper-container-wrapper">
+          
+          <!-- Swiper com overflow:hidden -->
+          <div class="swiper my-swiper">
+            <div class="swiper-wrapper">
+              
+              <!-- SLIDE 1: Slidin’ Through -->
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img 
+                    src="https://via.placeholder.com/400x250.gif?text=Slidin+Through" 
+                    alt="Slidin' Through - GIF do jogo"
+                  >
+                  <div class="slide-info">
+                    <h3>Slidin’ Through</h3>
+                    <div class="tags">
+                        <span class="tag role">Game Design</span>
+                        <span class="tag role">Level Design</span>
+                        <span class="tag role">Produção</span>
+                        <span class="tag role">Programação</span>
+                        <span class="tag status">Projeto completo</span>
+                      </div>
+                    <p>
+                      <strong>Contexto:</strong> Adaptei um <em>infinite runner</em> 
+                      para um tema de bloco de gelo derretendo, reforçando a ideia de 
+                      frio e de deslizar.<br><br>
+                      <strong>Conceito:</strong> Para não ficar infinito e tedioso, 
+                      existe só um cubo de gelo substituto, o que força o jogador 
+                      a gerenciar bem essa mecânica. O objetivo foi desafiar minhas 
+                      capacidades de game design ao inserir um jogo simples num 
+                      contexto inusitado.<br><br>
+                      <strong>Sensação:</strong> A trilha sonora utiliza samples 
+                      de músicas em que participa o rapper Ice Cube, reforçando o 
+                      tema de “gelo”. Quis transmitir a ideia de <em>deslizar</em> 
+                      e de <em>frio</em> em todos os aspectos do jogo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SLIDE 2: Dig Out -->
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img 
+                    src="https://via.placeholder.com/400x250.gif?text=Dig+Out" 
+                    alt="Dig Out - GIF do jogo"
+                  >
+                  <div class="slide-info">
+                    <h3>Dig Out</h3>
+                    <div class="tags">
+                        <span class="tag role">Game Design</span>
+                        <span class="tag role">Level Design</span>
+                        <span class="tag role">QA</span>
+                        <span class="tag role">Programação</span>
+                        <span class="tag role">Direção de Arte</span>
+                        <span class="tag status">Em Desenvolvimento</span>
+                      </div>
+                    <p>
+                      <strong>Contexto:</strong> Um platformer que aborda a busca 
+                      do sentido da vida, fazendo analogia à depressão: você não 
+                      percebe o problema até ver que está no fundo do poço.<br><br>
+                      <strong>Narrativa:</strong> Ao longo do jogo, o jogador se 
+                      depara com inimigos que representam sintomas da depressão, 
+                      e descobre que a vida não tem sentido a não ser pela própria 
+                      busca de sentido, numa referência ao mito de Sísifo.<br><br>
+                      <strong>Mecânicas:</strong> É possível pular, meditar, 
+                      resolver problemas (para derrotar inimigos) e coletar moedas 
+                      que aumentam HP e melhoram saltos e velocidade. Quis retratar 
+                      a sensação de estar preso, mas também a possibilidade de 
+                      encontrar motivação.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SLIDE 3: Lookin’ 4 a Like -->
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  <img 
+                    src="https://via.placeholder.com/400x250.gif?text=Lookin+4+a+Like" 
+                    alt="Lookin’ 4 a Like - GIF do jogo"
+                  >
+                  <div class="slide-info">
+                    <h3>Lookin’ 4 a Like</h3>
+                    <div class="tags">
+                        <span class="tag role">Game Design</span>
+                        <span class="tag role">Level Design</span>
+                        <span class="tag role">Programação</span>
+                        <span class="tag role">Produção</span>
+                        <span class="tag status">Em Desenvolvimento</span>
+                      </div>
+                    <p>
+                      <strong>Contexto:</strong> Meu primeiro jogo, de 2020, 
+                      que critica o uso das redes sociais (Instagram, Tinder), 
+                      onde buscamos aprovação externa para receber dopamina dos likes.<br><br>
+                      <strong>Conceito:</strong> O jogador move-se apenas por 
+                      pulos (esquerda ou direita), simulando “subir” nas redes 
+                      sociais. Likes surgem em pontos específicos por tempo 
+                      limitado, enquanto dislikes atravessam a tela tentando 
+                      atingir o jogador.<br><br>
+                      <strong>Objetivo:</strong> Mostrar a dificuldade de 
+                      “alcançar” likes, enquanto os dislikes chegam de forma 
+                      inevitável. As hashtags (plataformas temporárias) reforçam 
+                      a ideia de redes sociais e desafio.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- Fim .swiper-wrapper -->
+
+            <!-- Paginação (bolinhas) -->
+            <div class="swiper-pagination"></div>
+          </div><!-- Fim do .swiper (overflow:hidden) -->
+
+          <!-- Setas do Swiper (fora do container .swiper) -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div> <!-- Fim do .swiper-container-wrapper -->
+      </div>
+    </section>
+
+    <!-- Seção 4: HABILIDADES -->
+    <section id="skills" class="section" data-color="#bc2444">
+      <div class="container skills-container">
+        <h2>Habilidades & Ferramentas</h2>
+        <div class="skills-grid">
+          <!-- Categoria: Design de Jogos -->
+          <div class="skill-category">
+            <h3>Design de Jogos</h3>
+            <ul>
+              <li>Projeção de experiências narrativas</li>
+              <li>Design de mecânicas e sistemas</li>
+              <li>Level design e balanceamento</li>
+              <li>Criação de desafios imersivos</li>
+            </ul>
+          </div>
+          <!-- Categoria: UX/UI -->
+          <div class="skill-category">
+            <h3>UX/UI para Jogos</h3>
+            <ul>
+              <li>Prototipagem de interfaces</li>
+              <li>Testes de usabilidade</li>
+              <li>Pesquisa da experiência do jogador</li>
+              <li>Wireframing e design de fluxos</li>
+            </ul>
+          </div>
+          <!-- Categoria: Ferramentas -->
+          <div class="skill-category">
+            <h3>Ferramentas</h3>
+            <ul>
+              <li>Unity e Unreal Engine</li>
+              <li>Figma, Photoshop</li>
+              <li>Trello, Git, Miro</li>
+              <li>HTML/CSS para prototipagem</li>
+            </ul>
+          </div>
+          <!-- Categoria: Soft Skills -->
+          <div class="skill-category">
+            <h3>Soft Skills</h3>
+            <ul>
+              <li>Comunicação colaborativa</li>
+              <li>Resolução criativa de problemas</li>
+              <li>Liderança em projetos</li>
+              <li>Capacidade de traduzir teoria em prática</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Seção 5: DEPOIMENTOS -->
+    <section id="testimonials" class="section" data-color="#ebebeb">
+      <div class="container from-down">
+        <h2>depoimentos</h2>
+        <blockquote>
+          <p>“trabalhar com o matheus foi incrível! ele tem um olhar único para gameplay e sempre se preocupa com a experiência do jogador.”</p>
+          <cite>– joão silva, programador</cite>
+        </blockquote>
+        <blockquote>
+          <p>“o matheus é um designer muito dedicado. ele sabe integrar arte, som e mecânicas de maneira coesa.”</p>
+          <cite>– marina rocha, artista 2d</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Seção 6: CONTATO -->
+    <section id="contact" class="section" data-color="#fbbb5c">
+      <div class="container from-down">
+        <h2>contato</h2>
+        <form>
+          <label for="name">nome</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="email">email</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="message">mensagem</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          
+          <button type="submit">enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2024 - matheus argolo</p>
+    </div>
+  </footer>
+
+  <!-- Swiper JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Script principal (inclui navegação de seções e Swiper init) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ========== LÓGICA DE NAVEGAÇÃO TELA A TELA ========== */
+      const sections = document.querySelectorAll(".section");
+      const header = document.getElementById("header");
+      const menuLinks = document.querySelectorAll(".menu-link");
+      const nameElement = document.getElementById("name");
+
+      let currentSectionIndex = 0;
+      let isScrolling = false;
+
+      const updateSection = (index) => {
+        const targetSection = sections[index];
+        targetSection.scrollIntoView({ behavior: "smooth" });
+
+        const newBgColor = targetSection.getAttribute("data-color");
+        const newTextColor = 
+            (newBgColor === "#ebebeb" || newBgColor === "#fbbb5c") 
+            ? "#0f0f0f" 
+            : "#ebebeb";
+            
+        header.style.backgroundColor = newBgColor;
+        header.style.color = newTextColor;
+        nameElement.style.color = newTextColor;
+        menuLinks.forEach((link) => {
+            link.style.color = newTextColor;
+        });
+      };
+
+      const scrollToSection = (direction) => {
+        if (direction === "down" && currentSectionIndex < sections.length - 1) {
+          currentSectionIndex++;
+        } else if (direction === "up" && currentSectionIndex > 0) {
+          currentSectionIndex--;
+        }
+        updateSection(currentSectionIndex);
+      };
+
+      const handleScroll = (event) => {
+        if (isScrolling) return;
+        if (event.deltaY > 0) {
+          scrollToSection("down");
+        } else if (event.deltaY < 0) {
+          scrollToSection("up");
+        }
+        isScrolling = true;
+        setTimeout(() => {
+          isScrolling = false;
+        }, 500);
+      };
+
+      document.addEventListener("keydown", (event) => {
+        if (isScrolling) return;
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          scrollToSection("down");
+        } else if (event.key === "ArrowUp") {
+          event.preventDefault();
+          scrollToSection("up");
+        }
+        isScrolling = true;
+        setTimeout(() => {
+          isScrolling = false;
+        }, 500);
+      });
+
+      menuLinks.forEach((link, index) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          currentSectionIndex = index;
+          updateSection(currentSectionIndex);
+        });
+      });
+
+      // Inicia na primeira seção
+      updateSection(0);
+
+      // Listener de rolagem do mouse
+      window.addEventListener("wheel", handleScroll);
+
+      /* ========== CONFIGURAÇÃO DO SWIPER ========== */
+      var swiper = new Swiper('.my-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true, // loop infinito
+        // Botões de navegação (apontando para os seletores “fora” do .swiper)
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        // Paginação (bolinhas)
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        // Efeito de transição
+        effect: 'slide',
+        speed: 600,
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        root: null, // Observa o viewport completo
+        rootMargin: "0px", // Sem margem adicional
+        threshold: 0.2, // 20% do elemento visível ativa a animação
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Adiciona a classe para ativar a animação
+            entry.target.classList.add("in-view");
+          } else {
+            // Remove a classe quando o elemento sai da viewport
+            entry.target.classList.remove("in-view");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Seleciona todos os elementos com as classes de movimento
+      const animatedElements = document.querySelectorAll(
+        ".from-left, .from-right, .from-down"
+      );
+      animatedElements.forEach((el) => observer.observe(el));
+    });
+
+
+  </script>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        root: null, // Observa o viewport completo
+        rootMargin: "0px", // Sem margem adicional
+        threshold: 0.2, // 20% do elemento visível ativa a animação
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Adiciona a classe para ativar a animação
+            entry.target.classList.add("in-view");
+          } else {
+            // Remove a classe quando o elemento sai da viewport (se desejar)
+            entry.target.classList.remove("in-view");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Seleciona todas as seções
+      const sections = document.querySelectorAll(".section");
+      sections.forEach((section) => observer.observe(section));
+    });
+
+  </script>
+</body>
+</html>

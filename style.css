@@ -1,0 +1,820 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    text-transform: lowercase; /* all lowercase */
+    scroll-behavior: smooth; /* smooth scrolling */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+/* Estilo da fonte Questrial */
+body {
+  font-family: 'Questrial', sans-serif;
+  font-weight: normal; /* Texto comum com peso normal */
+  color: #0f0f0f; /* Ajuste a cor conforme necessário */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Questrial', sans-serif;
+  font-weight: 900; /* Títulos com peso heavy (mais grosso) */
+  
+  letter-spacing: 1px; /* Ajuste de espaçamento entre letras para destacar os títulos */
+}
+
+/* Movimento da esquerda para a direita */
+.from-left {
+  transform: translateX(-100px); /* Começa deslocado para a esquerda */
+  transition: transform 0.6s ease; /* Animação suave */
+}
+
+.from-left.in-view {
+  transform: translateX(0); /* Volta para a posição original */
+}
+
+/* Movimento da direita para a esquerda */
+.from-right {
+  transform: translateX(100px); /* Começa deslocado para a direita */
+  transition: transform 0.6s ease; /* Animação suave */
+}
+
+.from-right.in-view {
+  transform: translateX(0); /* Volta para a posição original */
+}
+
+/* Movimento de baixo para cima */
+.from-down {
+  transform: translateY(100px); /* Começa deslocado para baixo */
+  transition: transform 0.6s ease; /* Animação suave */
+}
+
+.from-down.in-view {
+  transform: translateY(0); /* Volta para a posição original */
+}
+
+
+
+/* Header fixo */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#name {
+    flex: 0 0 30%;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: lowercase;
+    color: #ebebeb;
+}
+
+/* Navegação */
+nav {
+    flex: 0 0 60%; 
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ebebeb;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+    text-align: right;
+    cursor: pointer;
+}
+
+.language-selector .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ebebeb;
+    color: #0f0f0f;
+    border: 1px solid #ddd;
+    list-style: none;
+    padding: 10px 0;
+    text-align: left;
+    z-index: 1000;
+    width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 0px;
+}
+
+.language-selector:hover .dropdown,
+.language-selector .dropdown:hover {
+    display: block;
+}
+
+.language-selector .dropdown li {
+    margin: 5px 0;
+}
+
+.language-selector .dropdown li a {
+    color: #0f0f0f;
+    text-decoration: none;
+    display: block;
+    padding: 5px 15px;
+}
+
+.language-selector .dropdown li a:hover {
+    background-color: #fbbb5c;
+    color: #0f0f0f;
+}
+
+/* Seções (cada tela ocupa 100vh) */
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    scroll-margin-top: 92px;
+}
+
+/* Alternância de cores (você pode usar ou não) */
+.section:nth-child(odd) {
+    background-color: #fdfdfd; 
+    color: #0f0f0f;
+}
+
+.section:nth-child(even) {
+    background-color: #0f0f0f; 
+    color: #fdfdfd;
+}
+
+/* Formas geométricas para as seções ímpares */
+.section:nth-child(odd)::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #bc2444;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.section:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    bottom: -80px;
+    right: -60px;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 200px solid #fbbb5c;
+    z-index: 1;
+}
+
+/* Formas geométricas para as seções pares */
+.section:nth-child(even)::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 150px;
+    height: 150px;
+    background-color: #bc2444;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.section:nth-child(even)::after {
+    content: "";
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 150px solid #fbbb5c;
+    z-index: 1;
+}
+
+/* Conteúdo específico de cada seção */
+
+/* Estilo da seção Sobre Mim */
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100vh; /* Mantém a seção com altura fixa */
+  overflow: hidden;
+
+}
+
+.about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-photo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 30px;
+  padding-top: 70px;
+}
+
+.about-text h2 {
+  margin: 0 10px 10px 0;
+  font-size: 2em;
+  color: #ebebeb;
+  text-align: right;
+}
+
+.text-scrollable {
+  max-height: 60%; /* Limita a altura disponível para o texto */
+  overflow-y: auto; /* Permite rolagem vertical */
+  padding-right: 10px;
+
+}
+
+.text-scrollable p {
+  line-height: 1.6;
+  color: #ebebeb;
+  margin: 10px 0;
+  text-align: right;
+
+
+}
+
+/* Barra de rolagem estilizada (opcional) */
+.text-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.text-scrollable::-webkit-scrollbar-thumb {
+  background-color: #bc2444;
+  border-radius: 3px;
+}
+
+.text-scrollable::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    height: auto; /* Permite mais flexibilidade em telas menores */
+  }
+
+  .about-photo img {
+    max-width: 80%;
+  }
+
+  .about-text h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .text-scrollable {
+    max-height: 300px; /* Limita a altura para mobile */
+  }
+}
+/* --- Projetos --- */
+
+#portfolio .container{
+  padding-top: 120px;
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1); /* leve destaque */
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    max-width: 800px;
+}
+
+/* Estilos CSS para as etiquetas */
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.tag.role {
+  background-color: #bc2444; /* Cor para funções */
+  color: #fff;
+}
+
+.tag.status {
+  background-color: #fbbb5c; /* Cor para status */
+  color: #333;
+}
+
+
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #bc2444;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.learn-more:hover {
+    background-color: #a02039;
+}
+
+/* --- Carousel Container --- */
+.carousel {
+  position: relative; /* Para posicionar os botões prev/next */
+  max-width: 800px;   /* Ajuste como preferir */
+  margin: 0 auto;     /* Centraliza na página */
+  overflow: hidden;   /* Esconde slides que não estão em exibição */
+}
+
+/* Botões Prev/Next */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.carousel-button.prev {
+  left: 0;
+}
+
+.carousel-button.next {
+  right: 0;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+/* Track Container (para esconder overflow e facilitar animação) */
+.carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track (lista de slides) */
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out; /* animação suave ao trocar de slide */
+}
+
+/* Cada Slide */
+.carousel-slide {
+  min-width: 100%; /* Cada slide ocupa a largura do container */
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+/* Imagem do Slide */
+.carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Info de cada slide (título, descrição, etc.) */
+.slide-info {
+  background-color: #fff;
+  color: #333;
+  margin: 10px auto;
+  padding: 10px;
+  max-width: 80%;
+  border-radius: 4px;
+  text-align: left; /* se preferir, deixe centralizado */
+}
+
+/* Ajuste cores caso queira "dark mode" nos slides,
+   usando algo como background-color: #111; color: #fff; etc. */
+
+
+/* Lista de habilidades */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Move o conteúdo para o topo */
+  height: 100vh; /* A seção ocupa toda a altura da tela */
+  text-align: center;
+  padding: 100px 20px 20px; /* Espaçamento superior */
+  box-sizing: border-box;
+}
+
+.skills-container h2{
+    margin-bottom: 30px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Divide em 2 colunas */
+  grid-template-rows: repeat(2, 1fr); /* Divide em 2 linhas */
+  gap: 30px; /* Espaçamento maior entre os quadrados */
+  width: 70%; /* Reduz a largura da grade */
+  max-height: 40%; /* Reduz a altura geral da grade */
+}
+
+.skill-category {
+  background-color: #bc2444; /* Cor do fundo */
+  color: #ebebeb; /* Cor do texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Largura do quadrado */
+  aspect-ratio: 1; /* Garante quadrados perfeitos */
+  text-align: center;
+}
+
+.skill-category h3 {
+  font-size: 1em; /* Ajuste o tamanho do título */
+  margin-bottom: 10px;
+  color: #fbbb5c; /* Destaque para o título */
+}
+
+.skill-category ul {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.skill-category ul li {
+  font-size: 0.9em; /* Ajuste o tamanho do texto */
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* Ajusta para 1 coluna */
+    grid-template-rows: auto; /* Ajusta automaticamente */
+    gap: 20px; /* Espaçamento menor em telas menores */
+  }
+
+  .skill-category {
+    width: 90%; /* Reduz ainda mais o tamanho do quadrado em telas menores */
+  }
+}
+
+
+
+/* Depoimentos */
+blockquote {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: left;
+}
+
+blockquote p {
+    font-style: italic;
+}
+
+/* Formulário de contato */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #bc2444;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #a02039;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =================================
+   WRAPPER GERAL DO SWIPER
+   =================================*/
+.swiper-container-wrapper {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  /* IMPORTANTE: se estiver “hidden” aqui, as setas podem ser cortadas.
+     Use visible para permitir exibir as setas fora do .my-swiper. */
+  overflow: visible;
+}
+
+/* =================================
+   O CONTAINER DO SWIPER EM SI
+   =================================*/
+.my-swiper {
+  width: 100%;
+  position: relative;
+  /* Mantém apenas 1 slide por vez, escondendo o início do próximo */
+  overflow: hidden;
+}
+
+/* =================================
+   AS “SLIDES” (wrapper interno)
+   =================================*/
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Layout de conteúdo do slide:
+   imagem (GIF) à esquerda, texto à direita */
+.slide-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 900px;
+}
+
+.slide-content img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.slide-info {
+  width: 50%;
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  /* Removemos box-shadow se não gostar */
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
+}
+
+.slide-info h3 {
+  margin-top: 0;
+}
+
+.slide-info p {
+  line-height: 1.6;
+}
+
+/* =================================
+   SETAS (navegação anterior/próximo)
+   =================================*/
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* Alto z-index para garantir que estejam por cima do slide */
+  z-index: 9999;
+  /* Cor das setas */
+  color: #0f0f0f;
+  /* Tamanho e cursor */
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Ajuste horizontal para “fora” do container */
+.swiper-button-prev {
+  left: -50px;  /* Se quiser menos “fora”, use -30px ou -20px */
+}
+.swiper-button-next {
+  right: -50px;
+}
+
+/* Hover opcional nas setas */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #333;
+}
+
+/* =================================
+   PAGINAÇÃO (BOLINHAS)
+   =================================*/
+/* Bullet NÃO ativo */
+.swiper-pagination-bullet {
+  background: #fbbb5c;
+  opacity: 1;
+  margin: 0 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Bullet ATIVO */
+.swiper-pagination-bullet-active {
+  background: #bc2444;
+}
+
+/* =================================
+   RESPONSIVIDADE
+   =================================*/
+@media (max-width: 768px) {
+  .slide-content {
+    flex-direction: column;
+  }
+  .slide-content img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .slide-info {
+    width: 100%;
+  }
+
+  /* As setas podem voltar “para dentro” se preferir no mobile */
+  .swiper-button-prev {
+    left: 10px;
+  }
+  .swiper-button-next {
+    right: 10px;
+  }
+}
+
+
+
+/* Torne as seções o contêiner para as figuras */
+.section {
+  position: relative; /* Necessário para que os pseudoelementos sejam posicionados corretamente */
+  overflow: hidden; /* Garante que as figuras geométricas não extrapolem a seção */
+}
+
+/* Posição final estática das figuras geométricas */
+.section:nth-child(odd)::before,
+.section:nth-child(even)::before,
+.section:nth-child(odd)::after,
+.section:nth-child(even)::after {
+  transform: translateX(0); /* Posição final padrão */
+  transition: transform 1s ease; /* Transição suave */
+}
+
+/* Figuras geométricas ímpares */
+.section:nth-child(odd)::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px; /* Posição final */
+  width: 200px;
+  height: 200px;
+  background-color: #bc2444;
+  border-radius: 50%; /* Define o círculo */
+  transform: translateX(-200px); /* Começa fora da tela à esquerda */
+}
+
+.section:nth-child(odd)::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -60px; /* Posição final */
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 200px solid #fbbb5c;
+  transform: translateX(200px); /* Começa fora da tela à direita */
+}
+
+/* Figuras geométricas pares */
+.section:nth-child(even)::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: 40px; /* Posição final */
+  width: 150px;
+  height: 150px;
+  background-color: #bc2444;
+  border-radius: 50%; /* Define o círculo */
+  transform: translateX(200px); /* Começa fora da tela à direita */
+}
+
+.section:nth-child(even)::after {
+  content: "";
+  position: absolute;
+  bottom: 50px;
+  left: 50px; /* Posição final */
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 150px solid #fbbb5c;
+  transform: translateX(-200px); /* Começa fora da tela à esquerda */
+}
+
+/* Ativação da animação */
+.section.in-view:nth-child(odd)::before,
+.section.in-view:nth-child(odd)::after,
+.section.in-view:nth-child(even)::before,
+.section.in-view:nth-child(even)::after {
+  transform: translateX(0); /* Move para a posição final */
+}
