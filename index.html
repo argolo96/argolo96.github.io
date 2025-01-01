@@ -46,12 +46,37 @@
 
   <main>
     <!-- Seção 1: INÍCIO -->
-    <section id="intro" class="section" data-color="#ebebeb">
-      <div class="container from-down">
-        <h1>oi, eu sou matheus argolo</h1>
-        <p>bem vindo ao meu site! eu sou um designer de jogos apaixonado por criar experiências memoráveis e envolventes.</p>
+    <section id="intro" class="section" data-color="#bc2444">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>oi! Sou Matheus Argolo</h1>
+          <p>
+          sou game designer e  acredito que um jogo é mais do que diversão; ele é uma jornada que midiática e artística que deve ser feita para criar experiências significativas. Minha função é 
+          transformar mecânicas e sistemas reais baseados em experiências desejaveis em algo que ressoe emocionalmente com os jogadores, mantendo 
+          o equilíbrio entre desafio e imersão. apaixonado por criar mecânicas envolventes, 
+          narrativas cativantes e experiências únicas.
+          </p>
+
+          <h2> Vamos trabalhar juntos para criar algo incrível?</h2>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">Veja Meus Projetos</a>
+            <a href="#contact" class="btn-secondary">Entre em Contato</a>
+          </div>
+          <div class="hero-contacts">
+            <a href="https://www.linkedin.com/in/matheus-argolo/" target="_blank" class="contact-icon">
+              <img src="img/linkedin_logo.png" alt="LinkedIn">
+            </a>
+            <a href="mailto:argolo.m96@gmail.com" class="contact-icon">
+              <img src="img/email_logo.png" alt="E-mail">
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="mockup-jogo.png" alt="Mockup de Projeto">
+        </div>
       </div>
     </section>
+
 
     <!-- Seção 2: SOBRE -->
     <section id="about" class="section" data-color="#bc2444">
@@ -258,37 +283,41 @@
 
     <!-- Seção 5: DEPOIMENTOS -->
     <section id="testimonials" class="section" data-color="#ebebeb">
-      <div class="container from-down">
-        <h2>depoimentos</h2>
-        <blockquote>
-          <p>“trabalhar com o matheus foi incrível! ele tem um olhar único para gameplay e sempre se preocupa com a experiência do jogador.”</p>
-          <cite>– joão silva, programador</cite>
-        </blockquote>
-        <blockquote>
-          <p>“o matheus é um designer muito dedicado. ele sabe integrar arte, som e mecânicas de maneira coesa.”</p>
-          <cite>– marina rocha, artista 2d</cite>
-        </blockquote>
+      <div class="container testimonials-container">
+        <h2>Depoimentos</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>“Matheus é um excelente profissional, não só como game designer, mas como entusiasta também no meio acadêmico. Tive o privilégio de ver palestra ministrada por ele sobre game designer e arquitetura, e poder trocar conhecimentos e experiências. Matheus é um profissional proativo e sempre toma iniciativas de modo que as coisas aconteçam, que não fiquem inteiramente só no papel. É um profissional que eu respeito e admiro.”</p>
+            <cite>– Valdemir Segundo, Game Developer</cite>
+          </div>
+          <div class="testimonial-card">
+            <p>“O Matheus é um designer muito dedicado. Ele sabe integrar arte, som e mecânicas de maneira coesa.”</p>
+            <cite>– Marina Rocha, Artista 2D</cite>
+          </div>
+        </div>
       </div>
     </section>
 
+
     <!-- Seção 6: CONTATO -->
-    <section id="contact" class="section" data-color="#fbbb5c">
-      <div class="container from-down">
-        <h2>contato</h2>
-        <form>
-          <label for="name">nome</label>
-          <input type="text" id="name" name="name" required>
-          
-          <label for="email">email</label>
-          <input type="email" id="email" name="email" required>
-          
-          <label for="message">mensagem</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-          
-          <button type="submit">enviar</button>
-        </form>
-      </div>
-    </section>
+    <section id="contact" class="section">
+          <div class="container from-down">
+            <h2>Contato</h2>
+            <p>Entre em contato preenchendo o formulário abaixo:</p>
+            <form action="send_email.php" method="POST">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" required>
+
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required>
+
+              <label for="telefone">Telefone</label>
+              <input type="text" id="telefone" name="telefone">
+
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </section>
   </main>
 
   <footer>

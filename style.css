@@ -241,6 +241,100 @@ nav {
 
 /* Conteúdo específico de cada seção */
 
+/*Hero*/
+
+/* Estilo para a Hero Section */
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  height: 100vh; /* Ocupa toda a altura da tela */
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Espaço entre texto e imagem */
+}
+
+.hero-text {
+  max-width: 50%; /* Limita a largura do texto */
+  padding-top: 150px;
+}
+
+.hero-text h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}
+
+.hero-text h2{
+  text-align: right;
+
+}
+
+.hero-text p {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  color: black;
+  text-align: left;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background-color: #fbbb5c;
+  color: #0f0f0f;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #e0a34b;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #fbbb5c;
+  color: #fbbb5c;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #fbbb5c;
+  color: #0f0f0f;
+}
+
+.hero-contacts {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.contact-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
 /* Estilo da seção Sobre Mim */
 .about-container {
   display: flex;
@@ -336,7 +430,7 @@ nav {
 /* --- Projetos --- */
 
 #portfolio .container{
-  padding-top: 120px;
+  padding-top: 50px;
 }
 
 .project {
@@ -548,6 +642,39 @@ blockquote {
 blockquote p {
     font-style: italic;
 }
+
+.testimonials-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria uma grade dinâmica */
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.testimonial-card {
+  background-color: #fbbb5c;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: left;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.testimonial-card cite {
+  display: block;
+  font-size: 0.9em;
+  color: #bc2444;
+  text-align: right;
+  font-weight: bold;
+}
+
 
 /* Formulário de contato */
 form {

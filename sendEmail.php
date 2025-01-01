@@ -6,8 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefone = $_POST['telefone'];
 
     // Configurações do e-mail
-    $para = "contato@fleex.solutions";
-    $assunto = "Novo Contato do Formulário";
+    $para = "argolo.m96@gmail.com"; // Seu email
+    $assunto = "Novo Contato do Portfólio";
 
     // Corpo do e-mail
     $mensagem = "Nome: $nome\n";
