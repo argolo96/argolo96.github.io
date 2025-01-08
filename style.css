@@ -113,7 +113,35 @@ nav {
 }
 
 .nav-links li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #fbbb5c !important;
+}
+
+/* Alterar cor de fundo do plugin */
+#language iframe {
+  background-color: #f1f1f1 !important; /* Cor do rodapé */
+  color: #333333 !important; /* Texto ajustado */
+  border: none !important; /* Remover borda se necessário */
+}
+
+/* Ajustar tamanho e alinhamento */
+#language {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Cor do texto ou botões internos */
+#language * {
+  color: inherit !important;
+}
+
+/* Aumentar responsividade */
+@media (max-width: 768px) {
+  #language {
+    font-size: 14px;
+  }
 }
 
 /* Language Selector */
@@ -367,7 +395,7 @@ nav {
   justify-content: center;
   overflow: hidden;
   margin-right: 30px;
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .about-text h2 {
@@ -430,7 +458,7 @@ nav {
 /* --- Projetos --- */
 
 #portfolio .container{
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 .project {
@@ -648,6 +676,10 @@ blockquote p {
   padding: 40px 20px;
 }
 
+.testimonials-container h2{
+  padding-top: 20px;
+}
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria uma grade dinâmica */
@@ -677,6 +709,9 @@ blockquote p {
 
 
 /* Formulário de contato */
+#contact .container{
+  padding-top: 30px;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -755,44 +790,47 @@ footer .container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   box-sizing: border-box;
 }
 
 /* Layout de conteúdo do slide:
    imagem (GIF) à esquerda, texto à direita */
-.slide-content {
-  display: flex;
-  flex-direction: row;
-  max-width: 900px;
-}
+   .slide-content {
+     display: flex;
+     align-items: center; /* Centraliza verticalmente a imagem em relação ao texto */
+     justify-content: space-between; /* Espaçamento entre a imagem e o texto */
+     gap: 20px; /* Espaço entre os elementos */
+     max-width: 900px; /* Ajuste conforme necessário */
+     margin: 0 auto; /* Centraliza o slide na tela */
+     padding: 20px; /* Adiciona espaçamento interno */
+   }
 
-.slide-content img {
-  width: 50%;
-  height: auto;
-  border-radius: 8px;
-  margin-right: 20px;
-  object-fit: cover;
-}
+   .slide-content img {
+     width: 40%; /* Ajuste a largura da imagem para ocupar menos espaço */
+     height: auto;
+     max-height: 300px; /* Garante que a altura não ultrapasse o limite */
+     object-fit: cover;
+   }
 
-.slide-info {
-  width: 50%;
-  background-color: #fff;
-  color: #333;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: left;
-  /* Removemos box-shadow se não gostar */
-  /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
-}
+   .slide-info {
+     width: 55%; /* Alarga a área de texto */
+     text-align: left; /* Alinha o texto à esquerda */
+     background-color: #fff; /* Fundo branco para destaque */
+     color: #333;
+     padding: 15px; /* Adiciona espaçamento interno */
 
-.slide-info h3 {
-  margin-top: 0;
-}
+     overflow-y: auto; /* Permite rolagem caso o texto exceda o espaço */
+   }
 
-.slide-info p {
-  line-height: 1.6;
-}
+   .slide-info h3 {
+     margin-top: 0; /* Remove espaçamento extra no topo */
+   }
+
+   .slide-info p {
+     line-height: 1.6; /* Espaçamento confortável entre linhas */
+     margin-bottom: 10px;
+   }
+
 
 /* =================================
    SETAS (navegação anterior/próximo)
