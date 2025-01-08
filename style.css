@@ -117,32 +117,7 @@ nav {
     color: #fbbb5c !important;
 }
 
-/* Alterar cor de fundo do plugin */
-#language iframe {
-  background-color: #f1f1f1 !important; /* Cor do rodapé */
-  color: #333333 !important; /* Texto ajustado */
-  border: none !important; /* Remover borda se necessário */
-}
 
-/* Ajustar tamanho e alinhamento */
-#language {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-/* Cor do texto ou botões internos */
-#language * {
-  color: inherit !important;
-}
-
-/* Aumentar responsividade */
-@media (max-width: 768px) {
-  #language {
-    font-size: 14px;
-  }
-}
 
 /* Language Selector */
 .language-selector {
@@ -355,11 +330,14 @@ nav {
   height: 30px;
 }
 
+.hero-image{
+  max-width: 45%;
+  padding-top: 160px;
+}
+
 .hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  height: 100%;
 }
 
 
