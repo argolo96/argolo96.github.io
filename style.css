@@ -12,7 +12,6 @@ body, html {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-
 }
 
 /* Estilo da fonte Questrial */
@@ -25,41 +24,31 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Questrial', sans-serif;
   font-weight: 900; /* Títulos com peso heavy (mais grosso) */
-  
-  letter-spacing: 1px; /* Ajuste de espaçamento entre letras para destacar os títulos */
+  letter-spacing: 1px; /* Ajuste de espaçamento entre letras */
 }
 
-/* Movimento da esquerda para a direita */
+/* Animações de entrada */
 .from-left {
-  transform: translateX(-100px); /* Começa deslocado para a esquerda */
-  transition: transform 0.6s ease; /* Animação suave */
+  transform: translateX(-100px);
+  transition: transform 0.6s ease;
 }
-
 .from-left.in-view {
-  transform: translateX(0); /* Volta para a posição original */
+  transform: translateX(0);
 }
-
-/* Movimento da direita para a esquerda */
 .from-right {
-  transform: translateX(100px); /* Começa deslocado para a direita */
-  transition: transform 0.6s ease; /* Animação suave */
+  transform: translateX(100px);
+  transition: transform 0.6s ease;
 }
-
 .from-right.in-view {
-  transform: translateX(0); /* Volta para a posição original */
+  transform: translateX(0);
 }
-
-/* Movimento de baixo para cima */
 .from-down {
-  transform: translateY(100px); /* Começa deslocado para baixo */
-  transition: transform 0.6s ease; /* Animação suave */
+  transform: translateY(100px);
+  transition: transform 0.6s ease;
 }
-
 .from-down.in-view {
-  transform: translateY(0); /* Volta para a posição original */
+  transform: translateY(0);
 }
-
-
 
 /* Header fixo */
 header {
@@ -117,15 +106,12 @@ nav {
     color: #fbbb5c !important;
 }
 
-
-
 /* Language Selector */
 .language-selector {
     position: relative;
     text-align: right;
     cursor: pointer;
 }
-
 .language-selector .dropdown {
     display: none;
     position: absolute;
@@ -142,34 +128,34 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 0px;
 }
-
 .language-selector:hover .dropdown,
 .language-selector .dropdown:hover {
     display: block;
 }
-
 .language-selector .dropdown li {
     margin: 5px 0;
 }
-
 .language-selector .dropdown li a {
     color: #0f0f0f;
     text-decoration: none;
     display: block;
     padding: 5px 15px;
 }
-
 .language-selector .dropdown li a:hover {
     background-color: #fbbb5c;
     color: #0f0f0f;
 }
 
-/* Seções (cada tela ocupa 100vh) */
+/* 
+   Seções: antes era height: 100vh. 
+   Para telas grandes, podemos manter o efeito de “tela cheia”.
+   Para telas menores, vamos permitir altura automática. 
+*/
 .section {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    /* ADAPTADO PARA RESPONSIVIDADE */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,135 +163,164 @@ nav {
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
     scroll-margin-top: 92px;
+    overflow: hidden;
 }
 
-/* Alternância de cores (você pode usar ou não) */
+/* Para desktops (acima de 992px) podemos manter o 100vh fixo */
+@media (min-width: 992px) {
+  .section {
+    height: 100vh;
+    min-height: auto; /* não precisa do min-height */
+  }
+}
+
+/* Alternância de cores */
 .section:nth-child(odd) {
     background-color: #fdfdfd; 
     color: #0f0f0f;
 }
-
 .section:nth-child(even) {
     background-color: #0f0f0f; 
     color: #fdfdfd;
 }
 
-/* Formas geométricas para as seções ímpares */
+/* Formas geométricas */
+.section::before,
+.section::after {
+  transition: transform 1s ease;
+}
+.section.in-view::before,
+.section.in-view::after {
+  transform: translateX(0);
+}
 .section:nth-child(odd)::before {
-    content: "";
-    position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 200px;
-    height: 200px;
-    background-color: #bc2444;
-    border-radius: 50%;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: #bc2444;
+  border-radius: 50%;
+  transform: translateX(-200px);
+  transition: transform 1s ease;
 }
 
 .section:nth-child(odd)::after {
-    content: "";
-    position: absolute;
-    bottom: -80px;
-    right: -60px;
-    width: 0;
-    height: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-top: 200px solid #fbbb5c;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -60px;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 200px solid #fbbb5c;
+  transform: translateX(200px);
+  transition: transform 1s ease;
 }
 
-/* Formas geométricas para as seções pares */
+.section.in-view:nth-child(odd)::before,
+.section.in-view:nth-child(odd)::after {
+  transform: translateX(0);
+}
 .section:nth-child(even)::before {
-    content: "";
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 150px;
-    height: 150px;
-    background-color: #bc2444;
-    border-radius: 50%;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: #bc2444;
+  border-radius: 50%;
+  transform: translateX(-200px);
+  transition: transform 1s ease;
 }
 
 .section:nth-child(even)::after {
-    content: "";
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    width: 0;
-    height: 0;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 150px solid #fbbb5c;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -60px;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 200px solid #fbbb5c;
+  transform: translateX(200px);
+  transition: transform 1s ease;
 }
 
-/* Conteúdo específico de cada seção */
+.section.in-view:nth-child(even)::before,
+.section.in-view:nth-child(even)::after {
+  transform: translateX(0);
+}
+@media (max-width: 768px) {
+  /* Some as formas em telas pequenas, se desejar */
+  .section:nth-child(odd)::before,
+  .section:nth-child(odd)::after,
+  .section:nth-child(even)::before,
+  .section:nth-child(even)::after {
+    display: none;
+  }
+}
 
-/*Hero*/
 
-/* Estilo para a Hero Section */
+/* Hero */
 .section {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 40px 20px;
-  height: 100vh; /* Ocupa toda a altura da tela */
 }
 
+/* Ajuste do container da Hero */
 .hero-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px; /* Espaço entre texto e imagem */
+  gap: 20px;
+  width: 100%;
+  margin: 0;
 }
 
+#container-hero{
+    margin: 0 auto;
+    padding: 20px 50px;
+}
+
+/* Texto da hero */
 .hero-text {
-  max-width: 50%; /* Limita a largura do texto */
-  padding-top: 150px;
+  max-width: 50%;
+  padding-top: 80px;
+  text-align: left; /* ajustado */
 }
-
 .hero-text h1 {
   font-size: 3em;
   margin-bottom: 20px;
   color: black;
   font-weight: bold;
-  text-align: left;
 }
-
-.hero-text h2{
-  text-align: right;
-
-}
-
 .hero-text p {
   font-size: 1.1em;
   margin-bottom: 30px;
   color: black;
-  text-align: left;
 }
-
+.hero-text h2 {
+  text-align: right;
+}
 .hero-actions {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
   justify-content: flex-end;
 }
-
 .btn-primary {
   background-color: #fbbb5c;
   color: #0f0f0f;
   padding: 10px 20px;
   text-decoration: none;
 }
-
 .btn-primary:hover {
   background-color: #e0a34b;
 }
-
 .btn-secondary {
   background-color: transparent;
   border: 2px solid #fbbb5c;
@@ -313,61 +328,56 @@ nav {
   padding: 10px 20px;
   text-decoration: none;
 }
-
 .btn-secondary:hover {
   background-color: #fbbb5c;
   color: #0f0f0f;
 }
-
 .hero-contacts {
   display: flex;
   gap: 15px;
   justify-content: flex-end;
 }
-
 .contact-icon img {
   width: 30px;
   height: 30px;
 }
 
-.hero-image{
-  max-width: 45%;
-  padding-top: 160px;
+/* Imagem da hero */
+.hero-image {
+  max-width: 100%;
+  padding-top: 5s0px;
+  height: 70%;
 }
-
 .hero-image img {
-
   height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: 0% 100%;
 }
 
-
-/* Estilo da seção Sobre Mim */
+/* Seção SOBRE MIM */
 .about-container {
   display: flex;
   align-items: center;
   gap: 20px;
-  height: 100vh; /* Mantém a seção com altura fixa */
-  overflow: hidden;
-
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* ADAPTADO PARA RESPONSIVIDADE */
+  flex-wrap: wrap; /* permite quebrar linha em telas menores */
 }
-
-.about-photo {
+.about-photo,
+.about-text {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-width: 300px; /* evita ficar muito apertado */
 }
-
 .about-photo img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
 }
-
 .about-text {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -375,19 +385,14 @@ nav {
   margin-right: 30px;
   padding-top: 40px;
 }
-
 .about-text h2 {
   margin: 0 10px 10px 0;
   font-size: 2em;
   color: #ebebeb;
   text-align: right;
 }
-
 .text-scrollable {
-  max-height: 60%; /* Limita a altura disponível para o texto */
-  overflow-y: auto; /* Permite rolagem vertical */
-  padding-right: 10px;
-
+  
 }
 
 .text-scrollable p {
@@ -395,64 +400,33 @@ nav {
   color: #ebebeb;
   margin: 10px 0;
   text-align: right;
-
-
 }
-
-/* Barra de rolagem estilizada (opcional) */
 .text-scrollable::-webkit-scrollbar {
   width: 6px;
 }
-
 .text-scrollable::-webkit-scrollbar-thumb {
   background-color: #bc2444;
   border-radius: 3px;
 }
-
 .text-scrollable::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    height: auto; /* Permite mais flexibilidade em telas menores */
-  }
-
-  .about-photo img {
-    max-width: 80%;
-  }
-
-  .about-text h2 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-
-  .text-scrollable {
-    max-height: 300px; /* Limita a altura para mobile */
-  }
-}
-/* --- Projetos --- */
-
+/* Projetos */
 #portfolio .container{
   padding-top: 70px;
 }
-
 .project {
-    background: rgba(255, 255, 255, 0.1); /* leve destaque */
+    background: rgba(255, 255, 255, 0.1);
     margin: 20px 0;
     padding: 20px;
     border-radius: 8px;
     text-align: left;
     max-width: 800px;
 }
-
-/* Estilos CSS para as etiquetas */
 .tags {
   margin-top: 10px;
 }
-
 .tag {
   display: inline-block;
   background-color: #f0f0f0;
@@ -462,221 +436,201 @@ nav {
   margin-bottom: 5px;
   font-size: 0.9em;
 }
-
 .tag.role {
-  background-color: #bc2444; /* Cor para funções */
+  background-color: #bc2444;
   color: #fff;
 }
-
 .tag.status {
-  background-color: #fbbb5c; /* Cor para status */
+  background-color: #fbbb5c;
   color: #333;
 }
 
+/* SWIPER */
+.swiper-container-wrapper {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  overflow: visible;
+}
+.my-swiper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.slide-content img {
+  width: 40%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+}
+.slide-info {
+  width: 55%;
+  text-align: left;
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
 
-.learn-more {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #bc2444;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
+}
+.slide-info h3 {
+  margin-top: 0;
+}
+.slide-info p {
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-.learn-more:hover {
-    background-color: #a02039;
-}
-
-/* --- Carousel Container --- */
-.carousel {
-  position: relative; /* Para posicionar os botões prev/next */
-  max-width: 800px;   /* Ajuste como preferir */
-  margin: 0 auto;     /* Centraliza na página */
-  overflow: hidden;   /* Esconde slides que não estão em exibição */
-}
-
-/* Botões Prev/Next */
-.carousel-button {
+/* Setas SWIPER */
+.swiper-button-prev,
+.swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
-  background-color: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
+  z-index: 9999;
+  color: #0f0f0f;
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
-
-.carousel-button.prev {
-  left: 0;
+.swiper-button-prev {
+  left: -50px;
 }
-
-.carousel-button.next {
-  right: 0;
+.swiper-button-next {
+  right: -50px;
 }
-
-.carousel-button:hover {
-  background-color: rgba(0,0,0,0.7);
-}
-
-/* Track Container (para esconder overflow e facilitar animação) */
-.carousel-track-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-/* Track (lista de slides) */
-.carousel-track {
-  display: flex;
-  transition: transform 0.4s ease-in-out; /* animação suave ao trocar de slide */
-}
-
-/* Cada Slide */
-.carousel-slide {
-  min-width: 100%; /* Cada slide ocupa a largura do container */
-  box-sizing: border-box;
-  text-align: center;
-  position: relative;
-}
-
-/* Imagem do Slide */
-.carousel-slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Info de cada slide (título, descrição, etc.) */
-.slide-info {
-  background-color: #fff;
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
   color: #333;
-  margin: 10px auto;
-  padding: 10px;
-  max-width: 80%;
-  border-radius: 4px;
-  text-align: left; /* se preferir, deixe centralizado */
 }
 
-/* Ajuste cores caso queira "dark mode" nos slides,
-   usando algo como background-color: #111; color: #fff; etc. */
+/* Paginação SWIPER */
+.swiper-pagination-bullet {
+  background: #fbbb5c;
+  opacity: 1;
+  margin: 0 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.swiper-pagination-bullet-active {
+  background: #bc2444;
+}
 
+/* Responsividade do SWIPER */
+@media (max-width: 768px) {
+  .slide-content {
+    flex-direction: column;
+  }
+  .slide-content img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .slide-info {
+    width: 100%;
+  }
+  .swiper-button-prev {
+    left: 10px;
+  }
+  .swiper-button-next {
+    right: 10px;
+  }
+}
 
-/* Lista de habilidades */
+#lookingif{
+  width: 30%;
+  height: 100%;
+  padding-left: 60px;
+}
+
+/* Skills */
 .skills-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Move o conteúdo para o topo */
-  height: 100vh; /* A seção ocupa toda a altura da tela */
+  justify-content: flex-start;
+  /* ADAPTADO PARA RESPONSIVIDADE */
+  min-height: auto;
+  height: auto;
   text-align: center;
-  padding: 100px 20px 20px; /* Espaçamento superior */
+  padding: 100px 20px 20px;
   box-sizing: border-box;
 }
-
-.skills-container h2{
+.skills-container h2 {
     margin-bottom: 30px;
 }
-
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Divide em 2 colunas */
-  grid-template-rows: repeat(2, 1fr); /* Divide em 2 linhas */
-  gap: 30px; /* Espaçamento maior entre os quadrados */
-  width: 70%; /* Reduz a largura da grade */
-  max-height: 40%; /* Reduz a altura geral da grade */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  width: 70%;
+  max-height: 40%;
 }
-
 .skill-category {
-  background-color: #bc2444; /* Cor do fundo */
-  color: #ebebeb; /* Cor do texto */
+  background-color: #bc2444;
+  color: #ebebeb;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Largura do quadrado */
-  aspect-ratio: 1; /* Garante quadrados perfeitos */
+  width: 100%;
+  aspect-ratio: 1;
   text-align: center;
 }
-
 .skill-category h3 {
-  font-size: 1em; /* Ajuste o tamanho do título */
+  font-size: 1em;
   margin-bottom: 10px;
-  color: #fbbb5c; /* Destaque para o título */
+  color: #fbbb5c;
 }
-
 .skill-category ul {
-  list-style: none; /* Remove bullets */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .skill-category ul li {
-  font-size: 0.9em; /* Ajuste o tamanho do texto */
+  font-size: 0.9em;
   margin: 5px 0;
   line-height: 1.4;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: 1fr; /* Ajusta para 1 coluna */
-    grid-template-rows: auto; /* Ajusta automaticamente */
-    gap: 20px; /* Espaçamento menor em telas menores */
-  }
-
-  .skill-category {
-    width: 90%; /* Reduz ainda mais o tamanho do quadrado em telas menores */
-  }
-}
-
-
-
 /* Depoimentos */
-blockquote {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    max-width: 600px;
-    text-align: left;
-}
-
-blockquote p {
-    font-style: italic;
-}
-
 .testimonials-container {
   text-align: center;
   padding: 40px 20px;
 }
-
-.testimonials-container h2{
+.testimonials-container h2 {
   padding-top: 20px;
 }
-
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria uma grade dinâmica */
-  gap: 20px; /* Espaçamento entre os cards */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
-
 .testimonial-card {
   background-color: #fbbb5c;
   border: 1px solid #ddd;
   padding: 20px;
   text-align: left;
 }
-
 .testimonial-card p {
   font-style: italic;
   color: #333;
   margin-bottom: 15px;
 }
-
 .testimonial-card cite {
   display: block;
   font-size: 0.9em;
@@ -685,9 +639,8 @@ blockquote p {
   font-weight: bold;
 }
 
-
-/* Formulário de contato */
-#contact .container{
+/* Contato */
+#contact .container {
   padding-top: 30px;
 }
 form {
@@ -697,11 +650,9 @@ form {
     margin: 0 auto;
     text-align: left;
 }
-
 form label {
     margin: 10px 0 5px;
 }
-
 form input,
 form textarea {
     padding: 8px;
@@ -709,7 +660,6 @@ form textarea {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
-
 form button {
     align-self: flex-end;
     padding: 10px 20px;
@@ -719,7 +669,6 @@ form button {
     cursor: pointer;
     border-radius: 4px;
 }
-
 form button:hover {
     background-color: #a02039;
 }
@@ -731,233 +680,138 @@ footer {
     text-align: center;
     padding: 15px 0;
 }
-
 footer .container {
     display: flex;
     justify-content: center;
 }
 
-
-/* =================================
-   WRAPPER GERAL DO SWIPER
-   =================================*/
-.swiper-container-wrapper {
-  position: relative;
-  width: 80%;
-  margin: 20px auto;
-  /* IMPORTANTE: se estiver “hidden” aqui, as setas podem ser cortadas.
-     Use visible para permitir exibir as setas fora do .my-swiper. */
-  overflow: visible;
-}
-
-/* =================================
-   O CONTAINER DO SWIPER EM SI
-   =================================*/
-.my-swiper {
-  width: 100%;
-  position: relative;
-  /* Mantém apenas 1 slide por vez, escondendo o início do próximo */
-  overflow: hidden;
-}
-
-/* =================================
-   AS “SLIDES” (wrapper interno)
-   =================================*/
-.swiper-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-/* Layout de conteúdo do slide:
-   imagem (GIF) à esquerda, texto à direita */
-   .slide-content {
-     display: flex;
-     align-items: center; /* Centraliza verticalmente a imagem em relação ao texto */
-     justify-content: space-between; /* Espaçamento entre a imagem e o texto */
-     gap: 20px; /* Espaço entre os elementos */
-     max-width: 900px; /* Ajuste conforme necessário */
-     margin: 0 auto; /* Centraliza o slide na tela */
-     padding: 20px; /* Adiciona espaçamento interno */
-   }
-
-   .slide-content img {
-     width: 40%; /* Ajuste a largura da imagem para ocupar menos espaço */
-     height: auto;
-     max-height: 300px; /* Garante que a altura não ultrapasse o limite */
-     object-fit: cover;
-   }
-
-   .slide-info {
-     width: 55%; /* Alarga a área de texto */
-     text-align: left; /* Alinha o texto à esquerda */
-     background-color: #fff; /* Fundo branco para destaque */
-     color: #333;
-     padding: 15px; /* Adiciona espaçamento interno */
-
-     overflow-y: auto; /* Permite rolagem caso o texto exceda o espaço */
-   }
-
-   .slide-info h3 {
-     margin-top: 0; /* Remove espaçamento extra no topo */
-   }
-
-   .slide-info p {
-     line-height: 1.6; /* Espaçamento confortável entre linhas */
-     margin-bottom: 10px;
-   }
-
-
-/* =================================
-   SETAS (navegação anterior/próximo)
-   =================================*/
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  /* Alto z-index para garantir que estejam por cima do slide */
-  z-index: 9999;
-  /* Cor das setas */
-  color: #0f0f0f;
-  /* Tamanho e cursor */
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-/* Ajuste horizontal para “fora” do container */
-.swiper-button-prev {
-  left: -50px;  /* Se quiser menos “fora”, use -30px ou -20px */
-}
-.swiper-button-next {
-  right: -50px;
-}
-
-/* Hover opcional nas setas */
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  color: #333;
-}
-
-/* =================================
-   PAGINAÇÃO (BOLINHAS)
-   =================================*/
-/* Bullet NÃO ativo */
-.swiper-pagination-bullet {
-  background: #fbbb5c;
-  opacity: 1;
-  margin: 0 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-/* Bullet ATIVO */
-.swiper-pagination-bullet-active {
-  background: #bc2444;
-}
-
-/* =================================
-   RESPONSIVIDADE
-   =================================*/
+/* ===============================
+   MEDIA QUERIES EXTRAS
+   =============================== */
+/* Exemplo de ajuste fino para telas menores que 768px */
 @media (max-width: 768px) {
-  .slide-content {
+
+  /* Reduz tamanho do h1 na hero */
+  .hero-text h1 {
+    font-size: 2em;
+  }
+  .hero-text {
+    max-width: 100%;
+    padding-top: 80px;
+  }
+  .hero-text h2 {
+    font-size: 1em;
+    text-align: left;
+  }
+  .hero-actions {
+    justify-content: flex-start;
+  }
+  .hero-contacts {
+    justify-content: flex-start;
+  }
+  .hero-image {
+    max-width: 100%;
+    padding-top: 20px;
+  }
+
+  /* Ajuste da about-container */
+  .about-text h2 {
+    text-align: center;
+  }
+  .text-scrollable {
+    max-height: 200px; 
+  }
+
+  /* Ajuste do skills-grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    width: 90%;
+    max-height: none;
+  }
+  .skill-category {
+    aspect-ratio: auto;
+    padding: 20px;
+  }
+}
+
+/* Para telas MUITO pequenas (até 480px) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+  .hero-text p {
+    font-size: 1em;
+  }
+  .hero-content {
     flex-direction: column;
+    align-items: flex-start;
   }
-  .slide-content img {
+  .hero-image {
+    align-self: center;
+  }
+  .hero-text h2 {
+    font-size: 0.9em;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .about-photo img {
+    max-width: 80%;
+  }
+}
+/* Botão hamburger */
+.hamburger {
+  display: none;        /* some em telas grandes */
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ebebeb;       /* cor do ícone */
+}
+
+/* Para telas menores que 768px, mostramos o hamburger
+   e escondemos o menu horizontal por padrão. */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;           /* aparece em mobile */
+    margin-right: 10px;       /* algum espaço à direita, se quiser */
+  }
+
+  /* O nav, por padrão, ficará escondido (vamos exibir quando clicarmos no hamburger) */
+  #main-nav {
+    display: none;
+    position: absolute;       /* flutua */
+    top: 70px;                /* abaixo do header fixo */
+    right: 0;
+    background-color: #333;   /* fundo para o dropdown */
+    width: 200px;             /* largura do menu "drop" */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+
+  /* Ajuste de estilo para a UL dentro desse nav */
+  #main-nav .nav-links {
+    flex-direction: column; /* fica uma coluna empilhada */
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  #main-nav .nav-links li {
+    margin: 0;
     width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
   }
-  .slide-info {
-    width: 100%;
+  #main-nav .nav-links li a {
+    display: block;         /* o link ocupa toda a largura */
+    padding: 10px 15px;
+    color: #ebebeb;
+    text-decoration: none;
+  }
+  #main-nav .nav-links li a:hover {
+    background-color: #fbbb5c;
+    color: #333;
   }
 
-  /* As setas podem voltar “para dentro” se preferir no mobile */
-  .swiper-button-prev {
-    left: 10px;
+  /* Quando .active for adicionada pelo JS,
+     mostramos o menu (transformando display: none em block) */
+  #main-nav.active {
+    display: block;
   }
-  .swiper-button-next {
-    right: 10px;
-  }
-}
-
-
-
-/* Torne as seções o contêiner para as figuras */
-.section {
-  position: relative; /* Necessário para que os pseudoelementos sejam posicionados corretamente */
-  overflow: hidden; /* Garante que as figuras geométricas não extrapolem a seção */
-}
-
-/* Posição final estática das figuras geométricas */
-.section:nth-child(odd)::before,
-.section:nth-child(even)::before,
-.section:nth-child(odd)::after,
-.section:nth-child(even)::after {
-  transform: translateX(0); /* Posição final padrão */
-  transition: transform 1s ease; /* Transição suave */
-}
-
-/* Figuras geométricas ímpares */
-.section:nth-child(odd)::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: -50px; /* Posição final */
-  width: 200px;
-  height: 200px;
-  background-color: #bc2444;
-  border-radius: 50%; /* Define o círculo */
-  transform: translateX(-200px); /* Começa fora da tela à esquerda */
-}
-
-.section:nth-child(odd)::after {
-  content: "";
-  position: absolute;
-  bottom: -80px;
-  right: -60px; /* Posição final */
-  width: 0;
-  height: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  border-top: 200px solid #fbbb5c;
-  transform: translateX(200px); /* Começa fora da tela à direita */
-}
-
-/* Figuras geométricas pares */
-.section:nth-child(even)::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  right: 40px; /* Posição final */
-  width: 150px;
-  height: 150px;
-  background-color: #bc2444;
-  border-radius: 50%; /* Define o círculo */
-  transform: translateX(200px); /* Começa fora da tela à direita */
-}
-
-.section:nth-child(even)::after {
-  content: "";
-  position: absolute;
-  bottom: 50px;
-  left: 50px; /* Posição final */
-  width: 0;
-  height: 0;
-  border-left: 100px solid transparent;
-  border-right: 100px solid transparent;
-  border-bottom: 150px solid #fbbb5c;
-  transform: translateX(-200px); /* Começa fora da tela à esquerda */
-}
-
-/* Ativação da animação */
-.section.in-view:nth-child(odd)::before,
-.section.in-view:nth-child(odd)::after,
-.section.in-view:nth-child(even)::before,
-.section.in-view:nth-child(even)::after {
-  transform: translateX(0); /* Move para a posição final */
 }

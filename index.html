@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>matheus argolo - portfolio</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+  <link rel="icon" type="image/x-icon" href="img/favicon.png">
 
   <!-- Swiper CSS (CDN) -->
   <link
@@ -22,7 +22,8 @@
   <header id="header">
     <div class="container">
       <div id="name" data-i18n="headerName">matheus argolo</div>
-      <nav>
+       <div class="hamburger" id="hamburger">&#9776;</div>
+      <nav id="main-nav">
         <ul class="nav-links">
           <li><a href="#intro" class="menu-link" data-i18n="navHome">início</a></li>
           <li><a href="#about" class="menu-link" data-i18n="navAbout">sobre</a></li>
@@ -51,7 +52,7 @@
   <main>
     <!-- Seção 1: INÍCIO -->
     <section id="intro" class="section" data-color="#bc2444">
-      <div class="container hero-content from-down">
+      <div id="container-hero" class="hero-content from-down">
         <div class="hero-text">
           <h1 data-i18n="introTitle">oi! sou matheus argolo</h1>
           <p data-i18n="introParagraph">
@@ -160,8 +161,8 @@
               <!-- SLIDE 3: Lookin’ 4 a Like -->
               <div class="swiper-slide">
                 <div class="slide-content">
-                  <img 
-                    src="https://via.placeholder.com/400x250.gif?text=Lookin+4+a+Like" 
+                  <img id="lookingif" 
+                    src="img/lookin.gif" 
                     alt="Lookin’ 4 a Like - GIF do jogo"
                   >
                   <div class="slide-info">
@@ -296,19 +297,24 @@
         const targetSection = sections[index];
         targetSection.scrollIntoView({ behavior: "smooth" });
 
-        const newBgColor = targetSection.getAttribute("data-color");
-        const newTextColor = 
-            (newBgColor === "#ebebeb" || newBgColor === "#fbbb5c") 
-            ? "#0f0f0f" 
-            : "#ebebeb";
-            
+        const newBgColor = targetSection.getAttribute("data-color") || "#333";
+        
+        // Se quiser manter a dinâmica, por exemplo:
+        // Se for claro, texto escuro; se não, texto claro
+        let newTextColor = "#ebebeb";
+        if (newBgColor === "#ebebeb" || newBgColor === "#fbbb5c") {
+          newTextColor = "#0f0f0f";
+        }
+        
+        // Agora de fato aplica:
         header.style.backgroundColor = newBgColor;
         header.style.color = newTextColor;
         nameElement.style.color = newTextColor;
         menuLinks.forEach((link) => {
-            link.style.color = newTextColor;
+          link.style.color = newTextColor;
         });
       };
+
 
       const scrollToSection = (direction) => {
         if (direction === "down" && currentSectionIndex < sections.length - 1) {
@@ -1201,6 +1207,22 @@
       });
 
   
+  </script>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+      // ... Seu código existente ...
+      
+      /* ========== HAMBURGER MENU ========== */
+      const hamburger = document.getElementById("hamburger");
+      const mainNav   = document.getElementById("main-nav");
+
+      hamburger.addEventListener("click", () => {
+        // Toggle (alternar) a classe .active
+        mainNav.classList.toggle("active");
+      });
+    });
+
   </script>
 </body>
 </html>
