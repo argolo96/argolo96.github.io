@@ -288,7 +288,7 @@ nav {
 
 /* Texto da hero */
 .hero-text {
-  max-width: 50%;
+  max-width: 42%;
   padding-top: 80px;
   text-align: left; /* ajustado */
 }
@@ -416,6 +416,10 @@ nav {
 #portfolio .container{
   padding-top: 70px;
 }
+
+#portfolio h2{
+  padding-top: 30px;
+}
 .project {
     background: rgba(255, 255, 255, 0.1);
     margin: 20px 0;
@@ -492,6 +496,7 @@ nav {
 .slide-info p {
   line-height: 1.6;
   margin-bottom: 10px;
+  font-size: 11pt;
 }
 
 /* Setas SWIPER */
